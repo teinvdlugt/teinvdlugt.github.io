@@ -1,0 +1,72 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+
+<dom-module id="profile-list">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      paper-button {
+        color: black;
+      }
+
+      iron-icon {
+        margin-right: 5px;
+        margin-left: 5px
+      }
+
+      span, input {
+        @apply(--paper-font-body2);
+      }
+    </style>
+
+    <template is="dom-repeat" items="{{profileData}}">
+      <a target="_blank" href="{{item.url}}"><paper-button noink raised>
+        <iron-icon icon="{{item.icon}}"></iron-icon>
+        <span>{{item.title}}</span>
+      </paper-button></a>
+    </template>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'profile-list',
+
+        ready: function() {
+          this.profileData = [
+            {
+              title: "GitHub",
+              icon: "social:github",
+              url: "https://github.com/teinvdlugt"
+            },
+            {
+              title: "Google Plus",
+              icon: "social:googleplus",
+              url: "https://plus.google.com/+teinvanderlugt1"
+            },
+            {
+              title: "Facebook",
+              icon: "social:facebook",
+              url: "https://www.facebook.com/tein.vanderlugt"
+            },
+            {
+              title: "Stackoverflow",
+              icon: "social:stackoverflow",
+              url: "http://stackoverflow.com/users/4129739/tein-van-der-lugt"
+            }
+          ];
+        }
+      });
+    })();
+  </script>
+</dom-module>
