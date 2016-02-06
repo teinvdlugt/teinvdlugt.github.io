@@ -28,12 +28,12 @@
 
     <div class="play-store-page">
       <a target="_blank" href="https://play.google.com/store/apps/developer?id=Tein+van+der+Lugt">
-        View apps in the Play Store</a>
+        View in the Play Store</a>
     </div>
 
     <template is="dom-repeat" items="{{apps}}">
       <a href="{{item.url}}" target="_blank"><paper-button><img
-        src="{{item.image}}" width="120", height="120"/><div class="app-name">
+        src="{{item.image}}" width="90", height="90"/><div class="app-name">
           {{item.name}}
         </div></paper-button></a>
     </template>

@@ -28,10 +28,12 @@
     </style>
 
     <template is="dom-repeat" items="{{profileData}}">
-      <a target="_blank" href="{{item.url}}"><paper-button noink raised>
-        <iron-icon icon="{{item.icon}}"></iron-icon>
-        <span>{{item.title}}</span>
-      </paper-button></a>
+      <a target="_blank" href="{{item.url}}">
+        <paper-button style="color:{{item.color}}" noink raised>
+          <iron-icon icon="{{item.icon}}"></iron-icon>
+          <span>{{item.title}}</span>
+        </paper-button>
+      </a>
     </template>
   </template>
 
@@ -47,22 +49,26 @@
             {
               title: "GitHub",
               icon: "social:github",
-              url: "https://github.com/teinvdlugt"
+              url: "https://github.com/teinvdlugt",
+              color: "blue"
             },
             {
               title: "Google Plus",
               icon: "social:googleplus",
-              url: "https://plus.google.com/+teinvanderlugt1"
+              url: "https://plus.google.com/+teinvanderlugt1",
+              color: "red"
             },
             {
               title: "Facebook",
               icon: "social:facebook",
-              url: "https://www.facebook.com/tein.vanderlugt"
+              url: "https://www.facebook.com/tein.vanderlugt",
+              color: "blue"
             },
             {
               title: "Stackoverflow",
               icon: "social:stackoverflow",
-              url: "http://stackoverflow.com/users/4129739/tein-van-der-lugt"
+              url: "http://stackoverflow.com/users/4129739/tein-van-der-lugt",
+              color: "green"
             }
           ];
         }
