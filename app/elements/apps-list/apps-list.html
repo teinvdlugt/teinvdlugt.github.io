@@ -14,14 +14,23 @@
         text-decoration: none;
       }
 
-      span,
-      input {
+      .play-store-page, a {
+        text-decoration: none;
+      }
+
+      .play-store-page, a:hover {
+        color: #3987d5;
+      }
+
+      span, input {
         @apply(--paper-font-body2);
       }
     </style>
 
-    <a target="_blank" href="https://play.google.com/store/apps/developer?id=Tein+van+der+Lugt">Visit Play Store page</a>
-    <br>
+    <div class="play-store-page">
+      <a target="_blank" href="https://play.google.com/store/apps/developer?id=Tein+van+der+Lugt">
+        View apps in the Play Store</a>
+    </div>
 
     <template is="dom-repeat" items="{{apps}}">
       <a href="{{item.url}}" target="_blank"><paper-button><img
