@@ -1,0 +1,60 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+
+<dom-module id="apps-list">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+
+      span,
+      input {
+        @apply(--paper-font-body2);
+      }
+    </style>
+
+    <a target="_blank" href="https://play.google.com/store/apps/developer?id=Tein+van+der+Lugt">Visit Play Store page</a>
+
+    <ul>
+      <template is="dom-repeat" items="{{apps}}">
+        <li><a href="{{item.url}}" target="_blank">{{item.name}}</a></li>
+      </template>
+    </ul>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'apps-list',
+
+        ready: function() {
+          this.apps = [
+            {
+              name: "Papyros Progress",
+              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.papyrosprogress"
+            },
+            {
+              name: "Fractal Exploration",
+              url: "https://play.google.com/store/apps/details?id=com.teinvdlugt.android.fractals"
+            },
+            {
+              name: "Game of Life",
+              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.gameoflife"
+            },
+            {
+              name: "Pi Trainer",
+              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.pitrainer"
+            },
+            {
+              name: "Brainf*ck Interpreter",
+              url: "https://play.google.com/store/apps/details?id=com.teinvdlugt.android.brainfuckinterpreter"
+            }
+          ]
+        }
+      });
+    })();
+  </script>
+</dom-module>
