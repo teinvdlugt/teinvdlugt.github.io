@@ -1,11 +1,17 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../elements.html">
 
 <dom-module id="apps-list">
   <template>
     <style include="shared-styles">
       :host {
         display: block;
+      }
+
+      .app-name {
+        color: black;
+        text-decoration: none;
       }
 
       span,
@@ -15,12 +21,14 @@
     </style>
 
     <a target="_blank" href="https://play.google.com/store/apps/developer?id=Tein+van+der+Lugt">Visit Play Store page</a>
+    <br>
 
-    <ul>
-      <template is="dom-repeat" items="{{apps}}">
-        <li><a href="{{item.url}}" target="_blank">{{item.name}}</a></li>
-      </template>
-    </ul>
+    <template is="dom-repeat" items="{{apps}}">
+      <a href="{{item.url}}" target="_blank"><paper-button><img
+        src="{{item.image}}" width="120", height="120"/><div class="app-name">
+          {{item.name}}
+        </div></paper-button></a>
+    </template>
   </template>
 
   <script>
@@ -34,23 +42,28 @@
           this.apps = [
             {
               name: "Papyros Progress",
-              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.papyrosprogress"
+              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.papyrosprogress",
+              image: "../../images/apps/papyros.png"
             },
             {
               name: "Fractal Exploration",
-              url: "https://play.google.com/store/apps/details?id=com.teinvdlugt.android.fractals"
+              url: "https://play.google.com/store/apps/details?id=com.teinvdlugt.android.fractals",
+              image: "../../images/apps/fractal.png"
             },
             {
               name: "Game of Life",
-              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.gameoflife"
+              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.gameoflife",
+              image: "../../images/apps/gameoflife.png"
             },
             {
               name: "Pi Trainer",
-              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.pitrainer"
+              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.pitrainer",
+              image: "../../images/apps/pitrainer.png"
             },
             {
               name: "Brainf*ck Interpreter",
-              url: "https://play.google.com/store/apps/details?id=com.teinvdlugt.android.brainfuckinterpreter"
+              url: "https://play.google.com/store/apps/details?id=com.teinvdlugt.android.brainfuckinterpreter",
+              image: "../../images/apps/brainfuck.png"
             }
           ]
         }
