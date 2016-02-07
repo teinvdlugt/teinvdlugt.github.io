@@ -29,7 +29,8 @@
 
     <template is="dom-repeat" items="{{profileData}}">
       <a target="_blank" href="{{item.url}}">
-        <paper-button style="color:{{item.color}}" noink raised>
+        <paper-button style="color:{{item.color}}" onmouseover="this._setElevation(4)"
+            onmouseout="this._setElevation(1)" noink raised>
           <iron-icon icon="{{item.icon}}"></iron-icon>
           <span>{{item.title}}</span>
         </paper-button>
