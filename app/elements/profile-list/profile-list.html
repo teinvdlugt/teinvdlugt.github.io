@@ -30,7 +30,7 @@
     <template is="dom-repeat" items="{{profileData}}">
       <a target="_blank" href="{{item.url}}">
         <paper-button style="color:{{item.color}}" onmouseover="this._setElevation(4)"
-            onmouseout="this._setElevation(1)" noink raised>
+                      onmouseout="this._setElevation(1)" noink raised>
           <iron-icon icon="{{item.icon}}"></iron-icon>
           <span>{{item.title}}</span>
         </paper-button>
@@ -39,13 +39,13 @@
   </template>
 
   <script>
-    (function() {
+    (function () {
       'use strict';
 
       Polymer({
         is: 'profile-list',
 
-        ready: function() {
+        ready: function () {
           this.profileData = [
             {
               title: "GitHub",
@@ -58,12 +58,6 @@
               icon: "social:googleplus",
               url: "https://plus.google.com/+teinvanderlugt1",
               color: "red"
-            },
-            {
-              title: "Facebook",
-              icon: "social:facebook",
-              url: "https://www.facebook.com/tein.vanderlugt",
-              color: "blue"
             },
             {
               title: "Stackoverflow",
