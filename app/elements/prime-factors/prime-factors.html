@@ -1,13 +1,66 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+
 <dom-module id="prime-factors">
   <template>
+    <style>
+      paper-material {
+        padding: 16px;
+      }
+    </style>
+
     <paper-material>
-      <h2>Hi</h2>
+      <h1>Calculate prime factors</h1>
+      <paper-input id="input" label="Type in your number" type="number"></paper-input>
+      <paper-button id="calculatebutton" on-tap="onClickCalculate" raised>Calculate</paper-button>
+      <br>
+      <div id="result"></div>
     </paper-material>
   </template>
 
   <script>
     Polymer({
-      is: 'prime-factors'
+      is: 'prime-factors',
+
+      onClickCalculate: function () {
+        this.$.result.innerHTML = '';
+
+        var number = this.$.input.value;
+        var numberLeft = number;
+
+        var i = 2;
+        while (i <= number) {
+          if (numberLeft % i == 0) {
+            numberLeft /= i;
+            console.log(i);
+            this.$.result.innerHTML += i + ', ';
+
+            if (numberLeft == 1) {
+              break;
+            }
+          } else {
+            i = this.nextPrime(i);
+          }
+        }
+
+        this.$.result.innerHTML += 'done';
+      },
+
+      isPrime: function (number) {
+        var sqrt = Math.sqrt(number);
+        for (var i = 2; i <= sqrt; i++) {
+          if (number % i == 0) {
+            return false;
+          }
+        }
+        return true;
+      },
+
+      nextPrime: function (startSearching) {
+        for (var i = startSearching + 1; true; i++) {
+          if (this.isPrime(i)) return i;
+        }
+      }
     });
   </script>
 </dom-module>
