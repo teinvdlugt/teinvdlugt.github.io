@@ -81,17 +81,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <!-- Content -->
     <div class="content">
-      <section data-route="home">
-        <paper-material elevation="1">
-          <h2>Android apps</h2>
-          <apps-list></apps-list>
-        </paper-material>
+      <iron-pages attr-for-selected="data-route" selected="{{route}}">
+        <section data-route="home">
+          <paper-material elevation="1">
+            <h2>Android apps</h2>
+            <apps-list></apps-list>
+          </paper-material>
 
-        <paper-material elevation="1">
-          <h2>Social</h2>
-          <profile-list></profile-list>
-        </paper-material>
-      </section>
+          <paper-material elevation="1">
+            <h2>Social</h2>
+            <profile-list></profile-list>
+          </paper-material>
+
+          <paper-material elevation="1">
+            <h2>Tools</h2>
+            <a href="{{baseUrl}}primefactors">Prime factors</a>
+          </paper-material>
+        </section>
+
+        <section data-route="primefactors">
+          <prime-factors></prime-factors>
+        </section>
+      </iron-pages>
     </div>
   </paper-scroll-header-panel>
 
