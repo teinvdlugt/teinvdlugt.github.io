@@ -1,0 +1,94 @@
+<dom-module id="applist-vertical">
+  <template>
+    <style include="shared-styles">
+      .list-divider {
+        height: 1px;
+        background-color: rgba(0, 0, 0, .2);
+      }
+
+      .table-cell {
+        vertical-align: middle;
+        display: table-cell;
+        height: 3em;
+      }
+
+      .app-name {
+        padding-left: 1em;
+      }
+
+      .app-logo {
+        margin: 5px;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
+
+    <!-- "View in Play Store" -->
+    <div>
+      <a class="fancy-link-decoration" target="_blank"
+         href="https://play.google.com/store/apps/developer?id=Tein+van+der+Lugt">
+        View on the Google Play Store</a>
+    </div>
+
+    <!-- List of apps -->
+    <template is="dom-repeat" items="{{apps}}">
+      <div class="list-divider"></div>
+
+      <a href="{{item.url}}" target="_blank" class="no-link-decoration">
+        <paper-material class="app-card" elevation="0" animated
+                        onmouseover="this.elevation = 4" onmouseout="this.elevation=0">
+          <div class="table-cell">
+            <img class="app-logo" src="{{item.image}}" />
+          </div>
+          <div class="table-cell app-name">{{item.name}}</div>
+        </paper-material>
+      </a>
+    </template>
+  </template>
+
+  <script>
+    (function () {
+      'use strict';
+
+      Polymer({
+        is: 'applist-vertical',
+
+        ready: function () {
+          this.apps = [
+            {
+              name: "Papyros Progress",
+              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.papyrosprogress",
+              image: "../../images/apps/papyros.png",
+              github: "https://github.com/teinvdlugt/PapyrosProgress"
+            },
+            {
+              name: "Fractal Exploration",
+              url: "https://play.google.com/store/apps/details?id=com.teinvdlugt.android.fractals",
+              image: "../../images/apps/fractal.png",
+              github: "https://github.com/teinvdlugt/Fractals"
+            },
+            {
+              name: "Game of Life",
+              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.gameoflife",
+              image: "../../images/apps/gameoflife.png",
+              github: "https://github.com/teinvdlugt/GameofLife"
+            },
+            {
+              name: "Pi Trainer",
+              url: "https://play.google.com/store/apps/details?id=com.teinproductions.tein.pitrainer",
+              image: "../../images/apps/pitrainer.png",
+              github: "https://github.com/teinvdlugt/PiTrainer"
+            },
+            {
+              name: "Brainf*ck Interpreter",
+              url: "https://play.google.com/store/apps/details?id=com.teinvdlugt.android.brainfuckinterpreter",
+              image: "../../images/apps/brainfuck.png",
+              github: "https://github.com/teinvdlugt/brainfuck-interpreter"
+            }
+          ];
+        }
+      });
+    })();
+
+  </script>
+</dom-module>
